@@ -67,28 +67,4 @@ export default Board;
 
 
 
-//------------------------------  ************** -------------------------------
-
-// import React, { useState } from 'react';
-// import List from './List';
-
-// const Board = () => {
-//   const [lists, setLists] = useState([
-//     { id: 1, title: 'To Do', cards: [{ id: 1, text: 'Sample Task' }] },
-//     { id: 2, title: 'In Progress', cards: [] },
-//     { id: 3, title: 'Done', cards: [] },
-//   ]);
-
-//   return (
-//     <div className="board">
-//       {lists.map((list) => (
-//         <List key={list.id} list={list} />
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default Board;
-
-
 

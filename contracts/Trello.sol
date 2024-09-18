@@ -45,41 +45,6 @@ contract Trello {
 
 
 
-//--------------------------------------  ********------------------------------------
-
-
-
-// pragma solidity 0.8.20;
-
-// contract Trello {
-//     struct Card {
-//         uint id;
-//         string text;
-//     }
-
-//     struct List {
-//         uint id;
-//         string title;
-//         Card[] cards;
-//     }
-
-//     mapping(uint => List) public lists;
-//     uint public listCount;
-
-//     function createList(string memory _title) public {
-//         listCount++;
-//         lists);
-//     }
-
-//     function addCard(uint _listId, string memory _text) public {
-//         List storage list = lists[_listId];
-//         list.cards.push(Card(list.cards.length + 1, _text));
-//     }
-
-//     function getList(uint _listId) public view returns (List memory) {
-//         return lists[_listId];
-//     }
-// }
 
 
 
