@@ -1,11 +1,24 @@
+
+
+//Card.jsx
+
+
 import React from 'react';
 
-const Card = ({ card }) => {
+const Card = ({ text }) => {
   return (
     <div className="card">
-      {card.text}
+      {text}
     </div>
   );
 };
 
 export default Card;
+
+
+
+
+// ------------------------------------------------------------------------
+
+
+

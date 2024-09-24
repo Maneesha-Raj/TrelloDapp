@@ -1,16 +1,32 @@
+
+// List.jsx
+
+
 import React from 'react';
 import Card from './Card';
 
-const List = ({ list }) => {
+
+
+const List = ({ title, cards }) => {
   return (
     <div className="list">
-      <h3>{list.title}</h3>
-      {list.cards.map((card) => (
-        <Card key={card.id} card={card} />
+      <h3>{title}</h3>
+      {cards.map((card, index) => (
+        <Card key={index} text={card} />
       ))}
-      <button>Add a card</button>
+      <div className="add-card">+ Add a card</div>
     </div>
   );
 };
 
 export default List;
+
+
+
+
+
+//----------------------------------------------------------------------------------------
+
+
+
+

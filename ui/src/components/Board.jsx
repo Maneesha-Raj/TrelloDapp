@@ -1,61 +1,29 @@
 
 
-import React, { useState, useEffect } from 'react';
+// Board.jsx
+
+
+import React, { useState } from 'react';
 import List from './List';
-import { ethers } from 'ethers';
-import detectEthereumProvider from '@metamask/detect-provider';
 
-const Board = () => {
-  const [lists, setLists] = useState([]);
-  const [provider, setProvider] = useState(null);
-  const [signer, setSigner] = useState(null);
-  const [connected, setConnected] = useState(false);
+const initialData = [
+  { id: 1, title: 'To Do', cards: ['Project planning', 'Kickoff meeting'] },
+  { id: 2, title: 'Doing', cards: [] },
+  { id: 3, title: 'Done', cards: [] }
+];
 
-  useEffect(() => {
-    // Initialize Ethereum provider
-    const initProvider = async () => {
-      const ethProvider = await detectEthereumProvider();
-      if (ethProvider) {
-        setProvider(new ethers.providers.Web3Provider(ethProvider));
-      } else {
-        console.error('MetaMask not detected');
-      }
-    };
-
-    initProvider();
-  }, []);
-
-  const connectMetaMask = async () => {
-    if (provider) {
-      try {
-        await provider.send("eth_requestAccounts", []);
-        const newSigner = provider.getSigner();
-        setSigner(newSigner);
-        setConnected(true);
-      } catch (error) {
-        console.error('User rejected the connection request');
-      }
-    } else {
-      console.error('Provider not found');
-    }
-  };
+function Board() {
+  const [lists, setLists] = useState(initialData);
 
   return (
     <div className="board">
-      {!connected ? (
-        <button onClick={connectMetaMask}>Connect to MetaMask</button>
-      ) : (
-        <div>
-          <p>Connected to MetaMask</p>
-          {/* Render lists after connecting */}
-          {lists.map((list) => (
-            <List key={list.id} list={list} />
-          ))}
-        </div>
-      )}
+      {lists.map((list) => (
+        <List key={list.id} title={list.title} cards={list.cards} />
+      ))}
+      <div className="add-list">+ Add another list</div>
     </div>
   );
-};
+}
 
 export default Board;
 
@@ -66,5 +34,5 @@ export default Board;
 
 
 
-
+//-------------------------------------*****  ***** ****-----------------------------------------------------------------------------
 
